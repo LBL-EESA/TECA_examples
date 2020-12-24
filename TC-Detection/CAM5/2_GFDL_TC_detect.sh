@@ -1,0 +1,29 @@
+#!/bin/bash
+#SBATCH -N 913
+#SBATCH -C knl
+#SBATCH -q regular
+#SBATCH -t 01:00:00
+#SBATCH -A m1517
+#SBATCH -J 2_GFDL_TC_detect
+
+# load gcc
+module swap PrgEnv-intel PrgEnv-gnu
+
+# bring a TECA install into your environment.
+module use /global/cscratch1/sd/loring/teca_testing/installs/develop/modulefiles
+module load teca
+
+# print the commands aas the execute, and error out if any one command fails
+set -e
+set -x
+
+data_dir=/global/cscratch1/sd/mwehner/machine_learning_climate_data/All-Hist/CAM5-1-0.25degree_All-Hist_est1_v3_run1/h2
+
+# run the GFDL TC detector
+time srun -N 913 -n 58400 \
+    teca_tc_detect --input_regex ${data_dir}/'.*\.nc$'  \
+        --candidate_file CAM5-1-025degree_All-Hist_est1_v3_run1_h2_candidates.bin \
+        --track_file CAM5-1-025degree_All-Hist_est1_v3_run1_h2_tracks.bin
+
+# report the number of tracks detected
+time ./number_of_tc_tracks CAM5-1-025degree_All-Hist_est1_v3_run1_h2_tracks.bin
