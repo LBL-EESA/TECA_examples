@@ -1,0 +1,14 @@
+TECA (missing_values)
++ out_dir=CMIP6_MOHC_HadGEM3-GC31-HM_highresSST-present_r1i2p1f1_E3hrPt/CASCADE_BARD_all
++ mkdir -p CMIP6_MOHC_HadGEM3-GC31-HM_highresSST-present_r1i2p1f1_E3hrPt/CASCADE_BARD_all
++ srun -N 2925 -n 23400 teca_bayesian_ar_detect --input_file CMIP6_MOHC_HadGEM3-GC31-HM_highresSST-present_r1i2p1f1_E3hrPt.mcf --specific_humidity hus --wind_u ua --wind_v va --ivt_u ivt_u --ivt_v ivt_v --ivt ivt --compute_ivt --write_ivt --write_ivt_magnitude --steps_per_file 128 --output_file CMIP6_MOHC_HadGEM3-GC31-HM_highresSST-present_r1i2p1f1_E3hrPt/CASCADE_BARD_all/CASCADE_BARD_AR_%t%.nc
+STATUS: [0:46912496725824] [/global/cscratch1/sd/loring/teca_testing/TECA_superbuild/build-missing_values/TECA-prefix/src/TECA/io/teca_cf_reader.cxx:233 TECA-BARD-v1.0.1-284-g6893dc4]
+STATUS: Using 1024 of 23400 MPI ranks  to read the time axis
+STATUS: [0:46912496725824] [/global/cscratch1/sd/loring/teca_testing/TECA_superbuild/build-missing_values/TECA-prefix/src/TECA/io/teca_cf_reader.cxx:233 TECA-BARD-v1.0.1-284-g6893dc4]
+STATUS: Using 1024 of 23400 MPI ranks  to read the time axis
+STATUS: [0:46912496725824] [/global/cscratch1/sd/loring/teca_testing/TECA_superbuild/build-missing_values/TECA-prefix/src/TECA/io/teca_cf_reader.cxx:233 TECA-BARD-v1.0.1-284-g6893dc4]
+STATUS: Using 1024 of 23400 MPI ranks  to read the time axis
+
+real	13m54.162s
+user	0m3.181s
+sys	0m6.916s
