@@ -12,7 +12,7 @@
 
 module swap PrgEnv-intel PrgEnv-gnu
 
-module use /global/cscratch1/sd/loring/teca_testing/installs/missing_values/modulefiles
+module use /global/cscratch1/sd/loring/teca_testing/installs/develop/modulefiles
 module load teca
 
 # print the commands aas the execute, and error out if any one command fails
