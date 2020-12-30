@@ -10,6 +10,8 @@
 # 68 cores per node / 8 cores per rank = 8 ranks per node
 # 23400 ranks / 8 ranks per node = 2925 nodes
 
+module swap PrgEnv-intel PrgEnv-gnu
+
 module use /global/cscratch1/sd/loring/teca_testing/installs/missing_values/modulefiles
 module load teca
 

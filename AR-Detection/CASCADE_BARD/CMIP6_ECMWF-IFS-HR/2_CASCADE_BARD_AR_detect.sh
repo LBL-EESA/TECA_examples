@@ -21,12 +21,6 @@ set -x
 out_dir=HighResMIP_ECMWF_ECMWF-IFS-HR_highresSST-present_r1i1p1f1_6hrPlevPt/CASCADE_BARD_all_prof
 mkdir -p ${out_dir}
 
-# enable profiling
-export PROFILER_ENABLE=3
-export PROFILER_LOG_FILE=cascade_bard_time_${SLURM_JOB_ID}.csv
-export MEMPROF_LOG_FILE=cascade_bard_mem_${SLURM_JOB_ID}.csv
-export MEMPROF_INTERVAL=2
-
 # do the ar detections. change -N and -n to match the rus size.
 # the run size is determened by the number of input time steps selected by
 # the input file. Note that CASCADE BARD relies on trheading for performance

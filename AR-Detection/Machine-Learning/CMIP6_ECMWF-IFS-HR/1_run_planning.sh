@@ -6,6 +6,9 @@
 #SBATCH -A m1517
 #SBATCH -J 1_run_planning
 
+# load gcc
+module swap PrgEnv-intel PrgEnv-gnu
+
 # bring a TECA install into your environment.
 module use /global/cscratch1/sd/loring/teca_testing/installs/develop/modulefiles
 module load teca
