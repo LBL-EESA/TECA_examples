@@ -10,7 +10,7 @@ The data used in this example is located on NERSC's Cori file system at:
 ```
 
 This HighResMIP dataset spans the year 1950 to 2014 with 7 pressure levels at a
-1 degree spatial and 6 hourly time resolution.  There are 94964 simulated time
+1/2 degree spatial and 6 hourly time resolution.  There are 94964 simulated time
 steps stored in 780 files which require 290 GB disk space per scalar field.
 
 In this example IVT is calculated on the fly from horizonatal wind vector and

@@ -1,5 +1,6 @@
-Machine-Learning AR Detector: CMIP6_ECMWF-IFS-HR
-===============================================
+# TECA deeplab AR Detector on CMIP6_ECMWF-IFS-HR
+
+## About the Dataset
 This repo contains batch scripts illustrating detecting ARs(atmospheric rivers)
 in a CMIP6 dataset using [TECA](https://github.com/LBL-EESA/TECA)'s
 machine learning detector, `teca_deeplab_ar_detect`.
@@ -10,16 +11,16 @@ The data used in this example is located on NERSC's Cori file system at:
 ```
 
 This CMIP6 dataset spans the year 1950 to 2014 with 7 pressure levels at a
-1 degree spatial and 6 hourly time resolution.  There are 94964 simulated time
+1/2 degree spatial and 6 hourly time resolution.  There are 94964 simulated time
 steps stored in 780 files which require 290 GB disk space per scalar field.
-
-In this example IVT is calculated on the fly from horizonatal wind vector and
+In this example IVT is calculated on the fly from horizontal wind vector and
 specific humidity, thus 870 GB was processed.
 
+## Batch Scripts
 The scripts contained in this repo were used to process the above dataset using
 100912 cores on 1484 KNL nodes on NERSC's Cray supercomputer Cori. The run
 computed the IVT vector, its magnitude, the probability of an AR and a
-segmentation of the AR probability. The run completed in 11m 49s and
+segmentation of the AR probability. The run completed in 5m 19s and
 generated a total of 392 GB of data.
 
 The following scripts were used for the run.
@@ -32,8 +33,17 @@ The following scripts were used for the run.
 
 These can be used as a template for making other similar runs. One will need to
 modify the paths in the scripts to point to a TECA install, and modify the MCF
-file to point to the desire3d HighResMIP dataset. Also note IVT magnitude can
-also be processed if it is available. This would reduce the computational and
-I/O overheads.
+file to point to the desired dataset.
 
+## Node Level Parallelism
+
+PyTorch can make use of OpenMP or GPUs for node level parallelism. When running
+on Cori, TECA configures torch for use with OpenMP such that each rank has
+thread pools where individual threads are bound to a unique core accounting for
+all thread pools on all ranks running on the same node. By default the thread
+pools will not use more than 4 threads. These settings were determined to work
+well on Cori KNL nodes. One may explicitly override the defaults by using a
+combination of OpenMP environment variables and SLURM srun command line
+options. See [PyTorch Node Level Parallelism](pytorch_parallelism/README.md)
+for more information.
 
