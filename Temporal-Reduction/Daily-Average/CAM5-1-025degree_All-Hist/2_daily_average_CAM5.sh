@@ -10,7 +10,7 @@ module swap PrgEnv-intel PrgEnv-gnu
 
 # bring a TECA install into your environment
 # change the following paths to point to your TECA install
-module use /global/cscratch1/sd/loring/teca_testing/installs/develop/modulefiles
+module use /project/projectdirs/m1517/TECA/latest/modulefiles
 module load teca
 
 # print the commands as they execute, and error out if any one command fails
