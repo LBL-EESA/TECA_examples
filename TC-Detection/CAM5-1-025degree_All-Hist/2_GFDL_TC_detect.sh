@@ -13,7 +13,7 @@ module swap PrgEnv-intel PrgEnv-gnu
 module use /project/projectdirs/m1517/TECA/latest/modulefiles
 module load teca
 
-# print the commands aas the execute, and error out if any one command fails
+# print the commands as they execute, and error out if any one command fails
 set -e
 set -x
 
@@ -26,4 +26,5 @@ time srun -N 913 -n 58400 \
         --track_file CAM5-1-025degree_All-Hist_est1_v3_run1_h2_tracks.bin
 
 # report the number of tracks detected
-time ./number_of_tc_tracks CAM5-1-025degree_All-Hist_est1_v3_run1_h2_tracks.bin
+time srun -N 1 -n 1 \
+    ./number_of_tc_tracks CAM5-1-025degree_All-Hist_est1_v3_run1_h2_tracks.bin

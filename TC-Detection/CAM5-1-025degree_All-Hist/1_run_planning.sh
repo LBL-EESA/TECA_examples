@@ -17,5 +17,5 @@ data_dir=/global/cscratch1/sd/mwehner/machine_learning_climate_data/All-Hist/CAM
 
 # run the probe to display variables, number of time steps, and time range
 time srun -N 17 -n 1024 \
-    ./bin/teca_metadata_probe --input_regex=${data_dir}/'.*\.nc$'
+    teca_metadata_probe --input_regex=${data_dir}/'.*\.nc$'
 
