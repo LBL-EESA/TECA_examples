@@ -1,6 +1,8 @@
-# TECA_Examples
-A collection of examples illustrating the use of TECA.
+## TECA Examples
+A collection of examples illustrating the use of TECA on Cori.
 
+
+<!--
 ## AR Detection
 
 <table>
@@ -42,3 +44,4 @@ A collection of examples illustrating the use of TECA.
   <td> <a href="Temporal-Reduction/Daily-Average/CAM5-1-025degree_All-Hist/README.md">CAM5-1-025degree_All-Hist</a></td>
   </tr>
 </table>
+-->
