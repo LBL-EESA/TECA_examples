@@ -23,12 +23,11 @@ data_dir=/global/cscratch1/sd/mwehner/machine_learning_climate_data/All-Hist/CAM
 # note there are 7300 files in this dataset, hence large core count
 time srun -N 22 -n 1448 \
     teca_tc_wind_radii --input_regex ${data_dir}/'^CAM5.*\.nc$' \
-        --track_file ./CAM5-1-025degree_All-Hist_est1_v3_run1_h2_tracks.bin \
+        --track_file ./tracks_CAM5-1-025degree_All-Hist_est1_v3_run1_h2.bin \
         --track_file_out ./wind_tracks_CAM5-1-2_025degree_All-Hist_est1_v3_run1.bin
 
 # convert the tracks file to CSV
-time srun -N 1 -n 1 \
-    teca_convert_table \
+time teca_convert_table \
         ./wind_tracks_CAM5-1-2_025degree_All-Hist_est1_v3_run1.bin \
         ./wind_tracks_CAM5-1-2_025degree_All-Hist_est1_v3_run1.csv
 
@@ -36,14 +35,12 @@ time srun -N 1 -n 1 \
 mkdir -p stats
 rm -rf stats/*
 
-time srun -N 1 -n 1  \
-    teca_tc_stats \
-        ./CAM5-1-025degree_All-Hist_est1_v3_run1_h2_tracks.bin \
+time teca_tc_stats \
+        ./tracks_CAM5-1-025degree_All-Hist_est1_v3_run1_h2.bin \
         stats/CAM5-1-2_025degree_All-Hist_est1_v3_run1
 
 # compute wind radii stats
-time srun -n 1 \
-    teca_tc_wind_radii_stats \
+time teca_tc_wind_radii_stats \
         wind_tracks_CAM5-1-2_025degree_All-Hist_est1_v3_run1.bin \
         stats/wind_CAM5-1-2_025degree_All-Hist_est1_v3_run1
 

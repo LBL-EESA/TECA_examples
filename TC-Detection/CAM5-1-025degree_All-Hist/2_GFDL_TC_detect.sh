@@ -22,9 +22,8 @@ data_dir=/global/cscratch1/sd/mwehner/machine_learning_climate_data/All-Hist/CAM
 # run the GFDL TC detector
 time srun -N 913 -n 58400 \
     teca_tc_detect --input_regex ${data_dir}/'.*\.nc$'  \
-        --candidate_file CAM5-1-025degree_All-Hist_est1_v3_run1_h2_candidates.bin \
-        --track_file CAM5-1-025degree_All-Hist_est1_v3_run1_h2_tracks.bin
+        --candidate_file candidates_CAM5-1-025degree_All-Hist_est1_v3_run1_h2.bin \
+        --track_file tracks_CAM5-1-025degree_All-Hist_est1_v3_run1_h2.bin
 
 # report the number of tracks detected
-time srun -N 1 -n 1 \
-    ./number_of_tc_tracks CAM5-1-025degree_All-Hist_est1_v3_run1_h2_tracks.bin
+time ./number_of_tc_tracks tracks_CAM5-1-025degree_All-Hist_est1_v3_run1_h2.bin
