@@ -12,7 +12,7 @@
 
 module swap PrgEnv-intel PrgEnv-gnu
 
-module use /project/projectdirs/m1517/TECA/latest/modulefiles
+module use /global/common/software/m1517/teca/stable
 module load teca
 
 # print the commands aas the execute, and error out if any one command fails
@@ -23,7 +23,7 @@ set -x
 out_dir=CMIP6_MOHC_HadGEM3-GC31-HM_highresSST-present_r1i2p1f1_E3hrPt/CASCADE_BARD_all
 mkdir -p ${out_dir}
 
-# do the ar detections. 
+# do the ar detections.
 time srun -N 2925 -n 23400 teca_bayesian_ar_detect \
     --input_file CMIP6_MOHC_HadGEM3-GC31-HM_highresSST-present_r1i2p1f1_E3hrPt.mcf \
     --specific_humidity hus --wind_u ua --wind_v va --ivt_u ivt_u --ivt_v ivt_v --ivt ivt \

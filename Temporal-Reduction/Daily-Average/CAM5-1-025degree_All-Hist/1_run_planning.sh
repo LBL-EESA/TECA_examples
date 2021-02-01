@@ -10,7 +10,7 @@
 module swap PrgEnv-intel PrgEnv-gnu
 
 # bring a TECA install into your environment.
-module use /project/projectdirs/m1517/TECA/latest/modulefiles
+module use /global/common/software/m1517/teca/stable
 module load teca
 
 data_dir=/global/cscratch1/sd/mwehner/machine_learning_climate_data/All-Hist/CAM5-1-0.25degree_All-Hist_est1_v3_run1/h2
