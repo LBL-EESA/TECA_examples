@@ -23,7 +23,7 @@ data_dir=/global/cscratch1/sd/mwehner/machine_learning_climate_data/All-Hist/CAM
 out_dir=CAM5-1-025degree_All-Hist_est1_v3_run1_daily_avg
 mkdir -p ${out_dir}
 
-# compute the daily average. change -N and -n to match the rus size.
+# compute the daily average. change -N and -n to match the run size.
 # the run size is determened by the number of output time steps. here the
 # input is 3 hourly, the output is daily.
 time srun -N 73 -n 146 \
