@@ -10,7 +10,7 @@
 module swap PrgEnv-intel PrgEnv-gnu
 
 # bring a TECA install into your environment
-module use /global/common/software/m1517/teca/stable
+module use /global/common/software/m1517/teca/develop/modulefiles
 module load teca
 
 # print the commands aas the execute, and error out if any one command fails

@@ -10,7 +10,7 @@
 module swap PrgEnv-intel PrgEnv-gnu
 
 # bring a TECA install into your environment.
-module use /global/common/software/m1517/teca/stable
+module use /global/common/software/m1517/teca/develop/modulefiles
 module load teca
 
 # print the commands aas the execute, and error out if any one command fails
@@ -18,7 +18,7 @@ set -e
 set -x
 
 # make a directory for the output files
-out_dir=HighResMIP_ECMWF_ECMWF-IFS-HR_highresSST-present_r1i1p1f1_6hrPlevPt/CASCADE_BARD_all_prof
+out_dir=HighResMIP_ECMWF_ECMWF-IFS-HR_highresSST-present_r1i1p1f1_6hrPlevPt/CASCADE_BARD_all
 mkdir -p ${out_dir}
 
 # do the ar detections. change -N and -n to match the rus size.
