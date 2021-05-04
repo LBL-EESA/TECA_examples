@@ -26,7 +26,7 @@ mkdir -p ${out_dir}
 # do the ar detections.
 time srun -N 2925 -n 23400 teca_bayesian_ar_detect \
     --input_file CMIP6_MOHC_HadGEM3-GC31-HM_highresSST-present_r1i2p1f1_E3hrPt.mcf \
-    --specific_humidity hus --wind_u ua --wind_v va --ivt_u ivt_u --ivt_v ivt_v --ivt ivt \
-    --compute_ivt --write_ivt --write_ivt_magnitude --steps_per_file 128 \
+    --specific_humidity hus --wind_u ua --wind_v va --ivt_u ivt_u --ivt_v ivt_v \
+    --ivt ivt --compute_ivt --write_ivt --write_ivt_magnitude \
     --output_file ${out_dir}/CASCADE_BARD_AR_%t%.nc
 

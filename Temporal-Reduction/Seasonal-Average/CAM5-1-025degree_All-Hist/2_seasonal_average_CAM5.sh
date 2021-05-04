@@ -31,4 +31,4 @@ time srun -N 80 -n 80 \
         --n_threads 2 --verbose 1 --input_regex ${data_dir}/'.*\.nc$' \
         --interval seasonal --operator average --point_arrays TS TMQ --ignore_fill_value \
         --output_file ${out_dir}/CAM5-1-025degree_All-Hist_est1_v3_seasonal_avg_%t%.nc \
-        --steps_per_file 4
+        --file_layout number_of_steps --steps_per_file 1

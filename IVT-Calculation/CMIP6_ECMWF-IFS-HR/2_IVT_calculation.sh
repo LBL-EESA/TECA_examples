@@ -28,5 +28,4 @@ time srun -N 1484 -n 23744 \
     teca_integrated_vapor_transport \
         --input_file ./HighResMIP_ECMWF_ECMWF-IFS-HR_highresSST-present_r1i1p1f1_6hrPlevPt.mcf \
         --specific_humidity hus --wind_u ua --wind_v va --ivt_u ivt_u --ivt_v ivt_v --ivt ivt \
-        --write_ivt 1 --write_ivt_magnitude 1 --steps_per_file 128 \
-        --output_file ${out_dir}/ivt_%t%.nc
+        --write_ivt 1 --write_ivt_magnitude 1 --output_file ${out_dir}/ivt_%t%.nc

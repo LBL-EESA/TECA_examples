@@ -31,4 +31,4 @@ time srun -N 73 -n 146 \
         --n_threads 2 --verbose 1 --input_regex ${data_dir}/'.*\.nc$' \
         --interval daily --operator average --point_arrays TS TMQ --ignore_fill_value \
         --output_file ${out_dir}/CAM5-1-025degree_All-Hist_est1_v3_daily_avg_%t%.nc \
-        --steps_per_file 50
+        --file_layout yearly

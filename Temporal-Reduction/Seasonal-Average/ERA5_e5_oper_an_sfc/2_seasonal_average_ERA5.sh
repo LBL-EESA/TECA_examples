@@ -33,4 +33,4 @@ time srun -N 164 -n 164 \
         --x_axis_variable longitude --y_axis_variable latitude \
         --interval seasonal --operator average --point_arrays TCWV \
         --output_file ${out_dir}/e5_oper_an_sfc_128_137_tcwv_ll025sc_seasonal_avg_%t%.nc \
-        --steps_per_file 4
+        --file_layout number_of_steps --steps_per_file 1

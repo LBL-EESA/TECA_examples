@@ -29,6 +29,6 @@ mkdir -p ${out_dir}
 time srun -N 1484 -n 23744 teca_bayesian_ar_detect \
     --input_file ./HighResMIP_ECMWF_ECMWF-IFS-HR_highresSST-present_r1i1p1f1_6hrPlevPt.mcf \
     --specific_humidity hus --wind_u ua --wind_v va --ivt_u ivt_u --ivt_v ivt_v --ivt ivt \
-    --compute_ivt --write_ivt --write_ivt_magnitude --steps_per_file 128 \
+    --compute_ivt --write_ivt --write_ivt_magnitude --file_layout yearly \
     --output_file ${out_dir}/CASCADE_BARD_AR_%t%.nc
 

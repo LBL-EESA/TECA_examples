@@ -19,5 +19,4 @@ set -x
 
 # run the probe to determine number size of the dataset
 time srun -N 17 -n 1024 \
-    teca_metadata_probe --z_axis_variable plev \
-        --input_file HighResMIP_ECMWF_ECMWF-IFS-HR_highresSST-present_r1i1p1f1_6hrPlevPt.mcf
+    teca_metadata_probe --input_file HighResMIP_ECMWF_ECMWF-IFS-HR_highresSST-present_r1i1p1f1_6hrPlevPt.mcf
