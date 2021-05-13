@@ -21,14 +21,15 @@ interval=yearly
 NN=1024
 let nn=${NN}*16
 
-data_root_out=ECMWF-IFS-HR_highresSST-present_r1i1p1f1_6hrPlevPt_${interval}
+data_root_out=ECMWF-IFS-HR_highresSST-present_r1i1p1f1_6hrPlevPt
 mkdir ${data_root_out}
 
 data_root_in=/global/cfs/cdirs/m3522/cmip6/CMIP6_hrmcol/HighResMIP/CMIP6/HighResMIP/ECMWF/ECMWF-IFS-HR/highresSST-present/r1i1p1f1/6hrPlevPt
 regex_in=6hrPlevPt_ECMWF-IFS-HR_highresSST-present_r1i1p1f1_gr_'.*\.nc$'
 
-var_in=(ua va ta ta zg zg)
-plev_mb=(850 850 200 500 200 924)
+# slice the following variables at the specified pressure levels.
+var_in=(ua va ta ta zg)
+plev_mb=(850 850 200 500 200)
 
 let n=${#var_in[@]}-1
 
@@ -52,3 +53,19 @@ do
         --output_file "${data_root_out}/${var_out}/${var_out}_6hrPlevPt_ECMWF-IFS-HR_highresSST-present_r1i1p1f1_gr_%t%.nc" \
         --point_arrays ${var_out} --file_layout ${interval}
 done
+
+# extract the highest pressure level available.
+echo "====================================================="
+echo "extracting zg at 925 into zg925"
+echo "====================================================="
+
+rm -rf "${data_root_out}/zg925"
+mkdir -p "${data_root_out}/zg925"
+
+time srun -n ${nn} -N ${NN}                                                                                     \
+    teca_cf_restripe                                                                                            \
+    --input_regex "${data_root_in}/zg/gr/v20170915/zg_${regex_in}"                                              \
+    --z_axis_variable plev --bounds 0 359.5 -90 90 92500 92500                                                  \
+    --rename --original_name zg --new_name zg925                                                                \
+    --output_file "${data_root_out}/zg925/zg925_6hrPlevPt_ECMWF-IFS-HR_highresSST-present_r1i1p1f1_gr_%t%.nc"   \
+    --point_arrays zg925 --file_layout ${interval}
