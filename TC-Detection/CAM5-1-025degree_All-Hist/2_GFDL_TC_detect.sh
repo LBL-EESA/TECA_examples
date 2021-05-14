@@ -25,5 +25,3 @@ time srun -N 913 -n 58400 \
         --candidate_file candidates_CAM5-1-025degree_All-Hist_est1_v3_run1_h2.bin \
         --track_file tracks_CAM5-1-025degree_All-Hist_est1_v3_run1_h2.bin
 
-# report the number of tracks detected
-time ./number_of_tc_tracks tracks_CAM5-1-025degree_All-Hist_est1_v3_run1_h2.bin
