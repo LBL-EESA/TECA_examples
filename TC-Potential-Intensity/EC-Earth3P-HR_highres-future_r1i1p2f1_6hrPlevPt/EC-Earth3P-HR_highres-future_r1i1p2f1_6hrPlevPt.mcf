@@ -1,0 +1,32 @@
+# TECA multi cf reader config
+# Test runs for Potential Intensity
+# Thu Aug  5 13:47:51 PDT 2021
+
+data_root = /global/cfs/cdirs/m3522/cmip6/CMIP6_hrmcol/HighResMIP/CMIP6/HighResMIP/EC-Earth-Consortium/EC-Earth3P-HR/highres-future/r1i1p2f1/6hrPlevPt
+regex = 6hrPlevPt_EC-Earth3P-HR_highres-future_r1i1p2f1_gr_.*\.nc$
+
+[cf_reader]
+variables = hus, latitude, longitude
+regex = %data_root%/hus/gr/v20190802/hus_%regex%
+x_axis_variable = i
+y_axis_variable = j
+z_axis_variable = plev
+provides_time
+provides_geometry
+
+[cf_reader]
+variables = psl
+regex = %data_root%/psl/gr/v20190802/psl_%regex%
+clamp_dimensions_of_one = 1
+
+[cf_reader]
+variables = ta
+regex = %data_root%/ta/gr/v20190802/ta_%regex%
+x_axis_variable = i
+y_axis_variable = j
+z_axis_variable = plev
+
+[cf_reader]
+variables = ts
+regex = %data_root%/ts/gr/v20190802/ts_%regex%
+clamp_dimensions_of_one = 1
