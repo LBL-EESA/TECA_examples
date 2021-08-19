@@ -16,14 +16,16 @@ export PYTHONPATH=/global/cscratch1/sd/loring/teca_testing/TECA/bin/lib/:$PYTHON
 
 set -x
 
-output_dir=data/CMCC-CM2-VHR4_highres-future_r1i1p1f1_6hrPlevPt_y
+output_dir=data/CMCC-CM2-VHR4_highres-future_r1i1p1f1_6hrPlevPt_ym
 rm -rf ${output_dir}/
 mkdir -p ${output_dir}
 
 time srun -n 13140  -N 822 teca_potential_intensity \
     --input_file CMCC-CM2-VHR4_highres-future_r1i1p1f1_6hrPlevPt.mcf \
-    --psl_var psl --sst_var ts --air_temp_var ta --specific_humidity_var hus \
+    --psl_variable psl --sst_variable ts --air_temperature_variable ta \
+    --specific_humidity_variable hus --file_layout yearly \
     --output_file ${output_dir}/CMCC-CM2-VHR4_highres-future_r1i1p1f1_6hrPlevPt_TCPI_%t%.nc \
-    --file_layout yearly \
+    --land_mask_variable LANDFRAC \
+    --land_mask_file /global/cscratch1/sd/loring/teca_testing/topography/USGS_gtopo30_0.23x0.31_remap_c061107.nc \
     --verbose 1
 

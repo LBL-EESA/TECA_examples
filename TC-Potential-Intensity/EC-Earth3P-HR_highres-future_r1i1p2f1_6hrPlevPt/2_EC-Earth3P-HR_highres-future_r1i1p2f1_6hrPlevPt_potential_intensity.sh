@@ -2,8 +2,8 @@
 #SBATCH -q regular
 #SBATCH -N 822
 #SBATCH -C knl
-#SBATCH -t 02:00:00
-#SBATCH -A m1517
+#SBATCH -t 01:00:00
+#SBATCH -A m636
 
 module switch PrgEnv-intel/6.0.5 PrgEnv-gnu
 module use /global/cscratch1/sd/loring/teca_testing/installs/develop-53291486-deps/modulefiles/
@@ -22,8 +22,8 @@ mkdir -p ${output_dir}
 
 time srun -n 13149  -N 822 teca_potential_intensity \
     --input_file EC-Earth3P-HR_highres-future_r1i1p2f1_6hrPlevPt.mcf \
-    --psl_var psl --sst_var ts --air_temp_var ta --specific_humidity_var hus \
+    --psl_variable psl --sst_variable ts --air_temperature_variable ta --specific_humidity_variable hus \
     --output_file ${output_dir}/EC-Earth3P-HR_highres-future_r1i1p2f1_6hrPlevPt_TCPI_%t%.nc \
-    --file_layout yearly \
+    --file_layout yearly --validate_spatial_coordinates 0 \
     --verbose 1
 
