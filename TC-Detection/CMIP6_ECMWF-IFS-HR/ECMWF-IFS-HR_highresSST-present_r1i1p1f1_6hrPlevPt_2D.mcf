@@ -27,8 +27,8 @@ variables = zg200
 regex = %data_root%/zg200/zg200_%regex%
 
 [cf_reader]
-variables = zg924
-regex = %data_root%/zg924/zg924_%regex%
+variables = zg925
+regex = %data_root%/zg925/zg925_%regex%
 
 [cf_reader]
 variables = psl
