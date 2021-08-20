@@ -5,7 +5,12 @@
 #SBATCH -t 00:30:00
 #SBATCH -A m1517
 
-time srun -n 128 -N 32 teca_metadata_probe --input_file CMCC-CM2-VHR4_highres-future_r1i1p1f1_6hrPlevPt.mcf
+module swap PrgEnv-intel PrgEnv-gnu
+module use /global/common/software/m1517/teca/develop/modulefiles
+module load teca
+
+time srun -n 128 -N 32 teca_metadata_probe \
+    --input_file CMCC-CM2-VHR4_highres-future_r1i1p1f1_6hrPlevPt.mcf
 
 # A total of 52560 steps available. Using the 365_day calendar. Times are specified
 # in units of days since 2015-01-01 00:00:00. The available times range from

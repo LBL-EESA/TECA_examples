@@ -5,20 +5,13 @@
 #SBATCH -t 00:30:00
 #SBATCH -A m1517
 
-time srun -n 128 -N 32 teca_metadata_probe --input_file EC-Earth3P-HR_highres-future_r1i1p2f1_6hrPlevPt.mcf
+module swap PrgEnv-intel PrgEnv-gnu
+module use /global/common/software/m1517/teca/develop/modulefiles
+module load teca
 
-# WARNING: [0:46912496728832] [/global/cscratch1/sd/loring/teca_testing/TECA/io/teca_cf_reader.cxx:406 4.0.0-239-gb2aba11]
-# WARNING: Integer x coordinate axes detected in i. A conversion to float will be made.
-# WARNING: [0:46912496728832] [/global/cscratch1/sd/loring/teca_testing/TECA/io/teca_cf_reader.cxx:465 4.0.0-239-gb2aba11]
-# WARNING: Mismatched y coordinate axes detected in j. A type conversion will be made.
-# WARNING: [0:46912496728832] [/global/cscratch1/sd/loring/teca_testing/TECA/io/teca_cf_reader.cxx:533 4.0.0-239-gb2aba11]
-# WARNING: Mismatched z coordinate axes detected in plev. A type conversion will be made.
-# WARNING: [0:46912496728832] [/global/cscratch1/sd/loring/teca_testing/TECA/io/teca_cf_reader.cxx:406 4.0.0-239-gb2aba11]
-# WARNING: Integer x coordinate axes detected in i. A conversion to float will be made.
-# WARNING: [0:46912496728832] [/global/cscratch1/sd/loring/teca_testing/TECA/io/teca_cf_reader.cxx:465 4.0.0-239-gb2aba11]
-# WARNING: Mismatched y coordinate axes detected in j. A type conversion will be made.
-# WARNING: [0:46912496728832] [/global/cscratch1/sd/loring/teca_testing/TECA/io/teca_cf_reader.cxx:533 4.0.0-239-gb2aba11]
-# WARNING: Mismatched z coordinate axes detected in plev. A type conversion will be made.
+time srun -n 128 -N 32 teca_metadata_probe \
+    --input_file EC-Earth3P-HR_highres-future_r1i1p2f1_6hrPlevPt.mcf
+
 #
 # A total of 52596 steps available. Using the proleptic_gregorian calendar. Times
 # are specified in units of hours since 1950-01-01 00:00:00. The available times

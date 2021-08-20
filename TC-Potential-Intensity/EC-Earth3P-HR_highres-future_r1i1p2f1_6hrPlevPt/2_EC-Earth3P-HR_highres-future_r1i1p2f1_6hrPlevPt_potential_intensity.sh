@@ -5,14 +5,9 @@
 #SBATCH -t 01:00:00
 #SBATCH -A m636
 
-module switch PrgEnv-intel/6.0.5 PrgEnv-gnu
-module use /global/cscratch1/sd/loring/teca_testing/installs/develop-53291486-deps/modulefiles/
+module swap PrgEnv-intel PrgEnv-gnu
+module use /global/common/software/m1517/teca/develop/modulefiles
 module load teca
-source /global/cscratch1/sd/loring/teca_testing/teca_tcpypi_env/bin/activate
-
-export PATH=/global/cscratch1/sd/loring/teca_testing/TECA/bin/bin/:$PATH
-export LD_LIBRARY_PATH=/global/cscratch1/sd/loring/teca_testing/TECA/bin/lib/:$LD_LIBRARY_PATH
-export PYTHONPATH=/global/cscratch1/sd/loring/teca_testing/TECA/bin/lib/:$PYTHONPATH
 
 set -x
 
