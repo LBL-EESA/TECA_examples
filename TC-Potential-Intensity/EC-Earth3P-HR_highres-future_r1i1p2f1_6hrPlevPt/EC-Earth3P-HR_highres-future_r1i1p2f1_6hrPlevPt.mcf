@@ -11,6 +11,11 @@ regex = %data_root%/hus/gr/v20190802/hus_%regex%
 x_axis_variable = i
 y_axis_variable = j
 z_axis_variable = plev
+target_bounds = 0, 359.648438, -89.7311478, 89.7311478, 1, 0
+target_x_axis_variable = lon
+target_x_axis_units = degrees_east
+target_y_axis_variable = lat
+target_y_axis_units = degrees_north
 provides_time
 provides_geometry
 
@@ -25,6 +30,11 @@ regex = %data_root%/ta/gr/v20190802/ta_%regex%
 x_axis_variable = i
 y_axis_variable = j
 z_axis_variable = plev
+target_bounds = 0, 359.648438, -89.7311478, 89.7311478, 1, 0
+target_x_axis_variable = lon
+target_x_axis_units = degrees_east
+target_y_axis_variable = lat
+target_y_axis_units = degrees_north
 
 [cf_reader]
 variables = ts
