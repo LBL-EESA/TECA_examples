@@ -7,6 +7,10 @@
 #SBATCH -J 1_run_prep
 #SBATCH --mail-type all
 
+module use /global/common/software/m1517/teca/develop/modulefiles/
+module switch PrgEnv-intel PrgEnv-gnu
+module load teca
+
 # create a script to launch the jobs
 submit_script=3_submit_runs.sh
 echo "#!/bin/bash" > ${submit_script}
