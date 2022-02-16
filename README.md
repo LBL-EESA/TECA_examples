@@ -1,5 +1,5 @@
 ## TECA Examples
-A collection of examples illustrating the use of TECA on Cori.
+A collection of examples illustrating the use of TECA on NERSC's Cray Supercomputers.
 
 
 <!--
