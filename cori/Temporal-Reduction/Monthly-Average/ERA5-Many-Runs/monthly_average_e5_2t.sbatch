@@ -5,7 +5,7 @@
 #SBATCH -t 01:00:00
 #SBATCH -A m3875
 
-module use /global/common/software/m1517/teca/develop/modulefiles/
+module use /global/common/software/m1517/teca/cori/develop/modulefiles/
 module switch PrgEnv-intel PrgEnv-gnu
 module load teca
 

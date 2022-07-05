@@ -6,7 +6,7 @@
 #SBATCH -A m1517
 
 module swap PrgEnv-intel PrgEnv-gnu
-module use /global/common/software/m1517/teca/develop/modulefiles
+module use /global/common/software/m1517/teca/cori/develop/modulefiles
 module load teca
 
 set -x

@@ -10,7 +10,7 @@
 module swap PrgEnv-intel PrgEnv-gnu
 
 # bring a TECA install into your environment.
-#module use /global/common/software/m1517/teca/develop/modulefiles
+#module use /global/common/software/m1517/teca/cori/develop/modulefiles
 #module load teca
 export PATH=/global/cscratch1/sd/loring/teca_testing/TECA/bin/bin:$PATH
 export LD_LIBRARY_PATH=/global/cscratch1/sd/loring/teca_testing/TECA/bin/lib:$LD_LIBRARY_PATH

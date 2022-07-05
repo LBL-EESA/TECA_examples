@@ -6,7 +6,7 @@
 
 # load TECA
 module swap PrgEnv-intel PrgEnv-gnu
-module use /global/common/software/m1517/teca/develop/modulefiles
+module use /global/common/software/m1517/teca/cori/develop/modulefiles
 module load teca
 
 # configure bash to error-out if any of the next lines errors
