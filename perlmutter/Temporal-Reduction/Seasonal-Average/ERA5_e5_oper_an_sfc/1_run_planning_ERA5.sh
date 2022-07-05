@@ -13,7 +13,7 @@ module load cudatoolkit
 module load cpe-cuda
 
 # bring a TECA install into your environment.
-module use /global/common/software/m1517/perlmutter/teca/develop/modulefiles/
+module use /global/common/software/m1517/teca/perlmutter_gpu/develop/modulefiles/
 module load teca
 
 # print the commands as they execute, and error out if any one command fails
