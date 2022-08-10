@@ -1,0 +1,19 @@
+# TECA multi cf reader config
+# Fri Nov  6 09:24:17 PST 2020
+
+data_root = /global/cfs/cdirs/m3522/cmip6/CMIP6_hrmcol/HighResMIP/CMIP6/HighResMIP/ECMWF/ECMWF-IFS-HR/highresSST-present/r1i1p1f1/6hrPlevPt
+regex = 6hrPlevPt_ECMWF-IFS-HR_highresSST-present_r1i1p1f1_gr_.*\.nc$
+
+[cf_reader]
+variables = hus
+regex = %data_root%/hus/gr/v20170915/hus_%regex%
+provides_time
+provides_geometry
+
+[cf_reader]
+variables = ua
+regex = %data_root%/ua/gr/v20170915/ua_%regex%
+
+[cf_reader]
+variables = va
+regex = %data_root%/va/gr/v20170915/va_%regex%
