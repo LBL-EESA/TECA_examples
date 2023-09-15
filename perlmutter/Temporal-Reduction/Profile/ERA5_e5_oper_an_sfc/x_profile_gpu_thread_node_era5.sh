@@ -34,7 +34,7 @@ time test_cpp_temporal_reduction_io \
     ${input_dir}/${file_base}'.*\.nc$' \
     longitude latitude . time TCWV 0 -1 \
     ${r_nt} ${r_nt} ${r_nt} ${r_strm} ${r_bind} ${r_prop} monthly average ${r_spreq} \
-    ${output_dir}/${file_base}_mon_avg_cpu_threads_%t%.nc monthly \
+    ${output_dir}/${file_base}_mon_avg_gpu_threads_%t%.nc monthly \
     ${w_nt} ${w_nt} ${w_nt} ${w_strm} ${w_bind}
 
 let r_nt=2*r_nt
